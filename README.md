@@ -14,7 +14,7 @@ Pack
 To pack the package, issue the following command like this:
 
 ```console
-> choco pack ./Gutenberg/Gutenberg.nuspec
+> choco pack ./gutenberg/gutenberg.nuspec
 ```
 
 To install the resulting package (for example, to test it):
