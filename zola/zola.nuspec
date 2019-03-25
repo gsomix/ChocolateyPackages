@@ -19,13 +19,7 @@
 
     <tags>zola static site-generator static-site-generator blog-engine documentation-tool cms markdown markdown-to-html content-management-system</tags>
     <summary>A fast static site generator in a single binary with everything built-in</summary>
-    <description># zola (né Gutenberg)
-[![Build Status](https://travis-ci.com/getzola/zola.svg?branch=master)](https://travis-ci.com/getzola/zola)
-[![Build status](https://ci.appveyor.com/api/projects/status/i0ufvx2sdm2cmawo/branch/master?svg=true)](https://ci.appveyor.com/project/Keats/zola/branch/master)
-
-A fast static site generator in a single binary with everything built-in.
-
-Documentation is available on [its site](https://www.getzola.org/documentation/getting-started/installation/) or
+    <description>A fast static site generator in a single binary with everything built-in. Documentation is available on [its site](https://www.getzola.org/documentation/getting-started/installation/) or
 in the `docs/content` folder of the repository.
 
 ### Supported content formats
