@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>zola</id>
-    <version>0.6.0</version>
+    <version>0.7.0</version>
     <title>zola</title>
     <authors>Vincent Prouillet, zola contributors</authors>
 
@@ -49,7 +49,17 @@ If you want a feature added or modified, please open an issue to discuss it befo
     </description>
 
     <owners>gsomix</owners>
-    <releaseNotes>## 0.6.0 (2019-03-25)
+    <releaseNotes>## 0.7.0 (2019-04-28)
+
+### Breaking
+- Remove --base-path option, it broke `serve` on Windows and wasn't properly tested
+
+### Other
+- Strip wrapping whitespaces from shortcodes
+- Sort sitemap elements by permalink`
+
+
+## 0.6.0 (2019-03-25)
 
 ### Breaking
 - `earlier/later` and `lighter/heavier` are not set anymore on pages when rendering
