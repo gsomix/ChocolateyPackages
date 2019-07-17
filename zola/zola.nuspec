@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>zola</id>
-    <version>0.7.0</version>
+    <version>0.8.0</version>
     <title>zola</title>
     <authors>Vincent Prouillet, zola contributors</authors>
 
@@ -49,7 +49,23 @@ If you want a feature added or modified, please open an issue to discuss it befo
     </description>
 
     <owners>gsomix</owners>
-    <releaseNotes>## 0.7.0 (2019-04-28)
+    <releaseNotes>## 0.8.0 (2019-06-22)
+
+### Breaking
+
+- Allow specifying heading IDs. It is a breaking change in the unlikely case you are using `{#..}` in your heading
+- Internal links are now starting by `@/` rather than `./` to avoid confusion with relative links
+- Latest Tera version now cares about where the `safe` filter is, always put it at the end of an expression.
+
+### Other
+
+- Fix image processing not happening if called from the template
+- Add a `zola check` command to that validates the site and checks all external links
+- Sections can have `aliases` as well
+- Anchors in internal links are now checked for existence
+
+
+## 0.7.0 (2019-04-28)
 
 ### Breaking
 - Remove --base-path option, it broke `serve` on Windows and wasn't properly tested
