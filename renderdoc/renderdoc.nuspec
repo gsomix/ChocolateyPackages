@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>renderdoc</id>
+    <version>1.4</version>
+    <title>renderdoc</title>
+    <authors>renderdoc contributors</authors>
+
+    <projectUrl>https://renderdoc.org/</projectUrl>
+    <iconUrl>https://renderdoc.org/docs/_images/logo.png</iconUrl>
+
+    <licenseUrl>https://github.com/baldurk/renderdoc/blob/v1.x/LICENSE.md</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+
+    <projectSourceUrl>https://github.com/baldurk/renderdoc</projectSourceUrl>
+    <docsUrl>https://renderdoc.org/docs/index.html</docsUrl>
+    <bugTrackerUrl>https://github.com/baldurk/renderdoc/issues</bugTrackerUrl>
+    <packageSourceUrl>https://github.com/gsomix/ChocolateyPackages</packageSourceUrl>
+
+    <tags>renderdoc opengl vulkan vulkan-api directx direct3d d3d11 d3d12 graphics-programming graphics debugger</tags>
+    <summary>RenderDoc is a stand-alone graphics debugging tool</summary>
+    <description>RenderDoc is a frame-capture based graphics debugger, currently available for Vulkan, D3D11, D3D12, OpenGL, and OpenGL ES development on Windows 7 - 10, Linux, Android, Stadia, and Nintendo Switch™. It is completely open-source under the MIT license.</description>
+
+    <owners>gsomix</owners>   
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
