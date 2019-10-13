@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>renderdoc</id>
-    <version>1.4</version>
+    <version>1.5</version>
     <title>renderdoc</title>
     <authors>renderdoc contributors</authors>
 
     <projectUrl>https://renderdoc.org/</projectUrl>
-    <iconUrl>https://renderdoc.org/docs/_images/logo.png</iconUrl>
+    <iconUrl>https://rawcdn.githack.com/baldurk/renderdoc/d3a4f5dc09cd882ca8023f94698ef5ec9b0fb1ed/docs/imgs/logo.png</iconUrl>
 
     <licenseUrl>https://github.com/baldurk/renderdoc/blob/v1.x/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
