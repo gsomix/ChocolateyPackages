@@ -20,7 +20,7 @@ To pack the package, issue the following command like this:
 To install the resulting package (for example, to test it):
 
 ```console
-> choco install ./zola.0.9.0.nupkg -f
+> choco install ./zola.0.10.0.nupkg -f
 ```
 
 Push
@@ -29,5 +29,5 @@ Push
 To push the package to Chocolatey.org, invoke the following:
 
 ```console
-> choco push ./zola.0.9.0.nupkg --api-key [your API key]
+> choco push ./zola.0.10.0.nupkg --api-key [your API key]
 ```

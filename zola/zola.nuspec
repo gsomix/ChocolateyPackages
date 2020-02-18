@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>zola</id>
-    <version>0.9.0</version>
+    <version>0.10.0</version>
     <title>zola</title>
     <authors>Vincent Prouillet, zola contributors</authors>
 
@@ -49,82 +49,27 @@ If you want a feature added or modified, please open an issue to discuss it befo
     </description>
 
     <owners>gsomix</owners>
-    <releaseNotes>## 0.9.0 (2019-09-28)
+    <releaseNotes>## 0.10.0 (2020-02-17)
 
 ### Breaking
-
-- Add `--drafts` flag to `build`, `serve` and `check` to load drafts. Drafts are never loaded by default anymore
-- Using `fit` in `resize_image` on an image smaller than the given height/width is now a no-op and will not upscale images anymore
-
-### Other
-- Add `--open` flag to open server URL in default browser
-- Fix sitemaps namespace and do not urlencode URLs
-- Update livereload
-- Add `hard_link_static` config option to hard link things in the static directory instead of copying
-- Add warning for old style internal links since they would still function silently
-- Print some counts when running `zola check`
-- Re-render all pages/sections when `anchor-link.html` is changed
-- Taxonomies can now have the same name in multiple languages
-- `zola init` can now be create sites inside the current directory
-- Fix table of contents generation for deep heading levels
-- Add `lang` in all templates context except sitemap, robots
-- Add `lang` parameter to `get_taxonomy` and `get_taxonomy_url`
-- Rebuild whole site on changes in `themes` changes
-- Add one-dark syntax highlighting theme
-- Process images on changes in `zola serve` if needed after change
-
-
-## 0.8.0 (2019-06-22)
-
-### Breaking
-
-- Allow specifying heading IDs. It is a breaking change in the unlikely case you are using `{#..}` in your heading
-- Internal links are now starting by `@/` rather than `./` to avoid confusion with relative links
-- Latest Tera version now cares about where the `safe` filter is, always put it at the end of an expression.
+- Remove `toc` variable in section/page context and pass it to `page.toc` and `section.toc` instead so they are
+accessible everywhere
+- [Slugification](https://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug) of paths, taxonomies and anchors is now configurable. By default, everything will still be slugified like in previous versions.
+See documentation for information on how to disable it.
 
 ### Other
-
-- Fix image processing not happening if called from the template
-- Add a `zola check` command to that validates the site and checks all external links
-- Sections can have `aliases` as well
-- Anchors in internal links are now checked for existence
-
-
-## 0.7.0 (2019-04-28)
-
-### Breaking
-- Remove --base-path option, it broke `serve` on Windows and wasn't properly tested
-
-### Other
-- Strip wrapping whitespaces from shortcodes
-- Sort sitemap elements by permalink`
-
-
-## 0.6.0 (2019-03-25)
-
-### Breaking
-- `earlier/later` and `lighter/heavier` are not set anymore on pages when rendering
-a section
-- The table of content for a page/section is now only available as the `toc` variable when
-rendering it and not anymore on the `page`/`section` variable
-- Default directory for `load_data` is now the root of the site instead of the `content` directory
-- Change variable sent to the sitemap template, see documentation for details
-
-### Other
-- Add support for content in multiple languages
-- Lower latency on serve before rebuilding from 2 to 1 second
-- Allow processing PNG and produced images are less blurry
-- Add an id (`zola-continue-reading`) to the paragraph generated after a summary
-- Add Dracula syntax highlighting theme
-- Fix using inline styles in headers
-- Fix sections with render=false being shown in sitemap
-- Sitemap is now split when there are more than 30 000 links in it
-- Add link to sitemap in robots.txt
-- Markdown rendering is now fully CommonMark compliant
-- `load_data` now defaults to loading file as plain text, unless `format` is passed
-or the extension matches csv/toml/json
-- Sitemap entries get an additional `extra` field for pages only
-- Add a `base-path` command line option to `build` and `serve`
+- Add zenburn syntax highlighting theme
+- Fix `zola init .`
+- Add `total_pages` to paginator
+- Do not prepend URL prefix to links that start with a scheme
+- Allow skipping anchor checking in `zola check` for some URL prefixes
+- Allow skipping prefixes in `zola check`
+- Check for path collisions when building the site
+- Fix bug in template extension with themes
+- Use Rustls instead of openssl
+- The continue reading HTML element is now a &lt;span&gt; instead of a &lt;p&gt;
+- Update livereload.js
+- Add --root global argument
     </releaseNotes>
     
   </metadata>
