@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>zola</id>
-    <version>0.10.0</version>
+    <version>0.10.1</version>
     <title>zola</title>
     <authors>Vincent Prouillet, zola contributors</authors>
 
@@ -49,7 +49,14 @@ If you want a feature added or modified, please open an issue to discuss it befo
     </description>
 
     <owners>gsomix</owners>
-    <releaseNotes>## 0.10.0 (2020-02-17)
+    <releaseNotes>## 0.10.1 (2020-03-12)
+
+- Set user agent for HTTP requests
+- Add nyx-bold highlight theme
+- Add lyric and subtitles highlighting
+- Enable strikethrough in markdown filter
+    
+## 0.10.0 (2020-02-17)
 
 ### Breaking
 - Remove `toc` variable in section/page context and pass it to `page.toc` and `section.toc` instead so they are
