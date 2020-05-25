@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>zola</id>
-    <version>0.10.1</version>
+    <version>0.11.0</version>
     <title>zola</title>
     <authors>Vincent Prouillet, zola contributors</authors>
 
@@ -49,7 +49,21 @@ If you want a feature added or modified, please open an issue to discuss it befo
     </description>
 
     <owners>gsomix</owners>
-    <releaseNotes>## 0.10.1 (2020-03-12)
+    <releaseNotes>## 0.11.0 (2020-05-25)
+
+### Breaking
+- RSS feed support has been altered to allow, *and default to*, Atom feeds, Atom being technically superior and just as widely-supported in normal use cases.
+  - New config value `feed_filename`, defaulting to `atom.xml` (change to `rss.xml` to reinstate the old behaviour)
+  - Config value `rss_limit` is renamed to `feed_limit`
+  - Config value `languages.*.rss` is renamed to `languages.*.feed`
+  - Config value `generate_rss` is renamed to `generate_feed`
+
+  Users with existing feeds should either set `feed_filename = "rss.xml"` in config.toml to keep things the same, or set up a 3xx redirect from rss.xml to atom.xml so that existing feed consumers aren’t broken.
+
+- The feed template variable `last_build_date` is renamed to `last_updated` to more accurately reflect its semantics
+- The sitemap template’s `SitemapEntry` type’s `date` field has been renamed to `updated` to reflect that it will use the `updated` front-matter field if available, rather than `date`
+
+## 0.10.1 (2020-03-12)
 
 - Set user agent for HTTP requests
 - Add nyx-bold highlight theme
