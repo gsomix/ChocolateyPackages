@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>zola</id>
-    <version>0.11.0</version>
+    <version>0.12.0</version>
     <title>zola</title>
     <authors>Vincent Prouillet, zola contributors</authors>
 
@@ -49,7 +49,30 @@ If you want a feature added or modified, please open an issue to discuss it befo
     </description>
 
     <owners>gsomix</owners>
-    <releaseNotes>## 0.11.0 (2020-05-25)
+    <releaseNotes>## 0.12.0 (2020-09-04)
+
+### Breaking
+
+- All paths like `current_path`, `page.path`, `section.path` (except colocated assets) now have a leading `/`
+- Search index generation for Chinese and Japanese has been disabled by default as it leads to a big increase in 
+binary size
+
+### Other
+
+- Add 2 syntax highlighting themes: `green` and `railsbase16-green-screen-dark`
+- Enable task lists in Markdown
+- Add support for SVG in `get_image_metadata`
+- Fix parsing of dates in arrays in `extra`
+- Add a `--force` argument to `zola init` to allow creating a Zola site in a non-empty directory
+- Make themes more flexible: `include` can now be used
+- Make search index generation configurable, see docs for examples
+- Fix Sass trying to load folders starting with `_`, causing issues with frameworks
+- Update livereload.js version
+- Add Markdown-outputting shortcodes
+- Taxonomies with the same name but different casing are now merged, eg Author and author
+
+
+## 0.11.0 (2020-05-25)
 
 ### Breaking
 - RSS feed support has been altered to allow, *and default to*, Atom feeds, Atom being technically superior and just as widely-supported in normal use cases.
@@ -62,35 +85,6 @@ If you want a feature added or modified, please open an issue to discuss it befo
 
 - The feed template variable `last_build_date` is renamed to `last_updated` to more accurately reflect its semantics
 - The sitemap template’s `SitemapEntry` type’s `date` field has been renamed to `updated` to reflect that it will use the `updated` front-matter field if available, rather than `date`
-
-## 0.10.1 (2020-03-12)
-
-- Set user agent for HTTP requests
-- Add nyx-bold highlight theme
-- Add lyric and subtitles highlighting
-- Enable strikethrough in markdown filter
-    
-## 0.10.0 (2020-02-17)
-
-### Breaking
-- Remove `toc` variable in section/page context and pass it to `page.toc` and `section.toc` instead so they are
-accessible everywhere
-- [Slugification](https://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug) of paths, taxonomies and anchors is now configurable. By default, everything will still be slugified like in previous versions.
-See documentation for information on how to disable it.
-
-### Other
-- Add zenburn syntax highlighting theme
-- Fix `zola init .`
-- Add `total_pages` to paginator
-- Do not prepend URL prefix to links that start with a scheme
-- Allow skipping anchor checking in `zola check` for some URL prefixes
-- Allow skipping prefixes in `zola check`
-- Check for path collisions when building the site
-- Fix bug in template extension with themes
-- Use Rustls instead of openssl
-- The continue reading HTML element is now a &lt;span&gt; instead of a &lt;p&gt;
-- Update livereload.js
-- Add --root global argument
     </releaseNotes>
     
   </metadata>
