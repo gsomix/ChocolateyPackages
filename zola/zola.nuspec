@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>zola</id>
-    <version>0.12.1</version>
+    <version>0.12.2</version>
     <title>zola</title>
     <authors>Vincent Prouillet, zola contributors</authors>
 
@@ -49,7 +49,12 @@ If you want a feature added or modified, please open an issue to discuss it befo
     </description>
 
     <owners>gsomix</owners>
-    <releaseNotes>## 0.12.1 (2020-09-27)
+    <releaseNotes>## 0.12.2 (2020-09-28)
+
+- Fix `zola serve` being broken on reload
+
+
+## 0.12.1 (2020-09-27)
 
 - Add line highlighting in code blocks
 - Fix the new `zola serve` being broken on Windows
