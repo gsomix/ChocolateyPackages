@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>zola</id>
-    <version>0.13.0</version>
+    <version>0.14.0</version>
     <title>zola</title>
     <authors>Vincent Prouillet, zola contributors</authors>
 
@@ -49,29 +49,50 @@ If you want a feature added or modified, please open an issue to discuss it befo
     </description>
 
     <owners>gsomix</owners>
-    <releaseNotes>## 0.13.0 (2021-01-09)
+    <releaseNotes>## 0.14.0 (2021-07-19)
 
-- Enable HTML minification
-- Support `output_dir` in `config.toml`
-- Allow sections to be drafted
-- Allow specifying default language in filenames
-- Render emoji in Markdown content if the `render_emoji` option is enabled
-- Enable YouTube privacy mode for the YouTube shortcode
-- Add language as class to the `code` block and as `data-lang`
-- Add bibtex to `load_data`
-- Add a `[markdown]` section to `config.toml` to configure rendering
-- Add `highlight_code` and `highlight_theme` to a `[markdown]` section in `config.toml`
-- Add `external_links_target_blank`, `external_links_no_follow` and `external_links_no_referrer`
-- Add a `smart_punctuation` option in the `[markdown]` section in `config.toml` to turn elements like dots and dashes 
-into their typographic forms
-- Add iteration count variable `nth` for shortcodes to know how many times a shortcode has been invoked in a given
-content
-- Update some highlighting syntaxes and the TS syntax will now be used instead of JS due to issues with it
-- Remove `zola serve --watch-only`: since we build the HTML in memory and not on disk, it doesn't make sense anymore
-- Update clojure syntax
-- Prefer extra syntaxes to the default ones if we have a match for language
-- Fix `zola serve` having issues with non-ascii paths
-- 404 page now gets the site default language as `lang`
+### Breaking
+
+- Newlines are now required after the closing `+++` of front-matter
+- `resize_image` now returns an object: `{url, static_path}` instead of just the URL so you can follow up with other functions on the new file if needed
+- `get_file_hash` now has the `base64` option set to `true` by default (from `false`) since it's mainly used for integrity hashes which are base64
+- i18n rework: languages now have their sections in `config.toml` to set up all their options
+  1. taxonomies don't have a `lang` anymore in the config, you need to declare them in their respective language section
+  2. the `config` variable in templates has been changed and is now a stripped down language aware version of the previous `config`
+  object
+  3. Search settings are now language specific
+  4. Translations are now nested in the languages table
+- Paths unification: 
+  1. `get_url` does not load automatically from the `static` folder anymore
+  2. New path resolving logic for all on-disk files: replace `@/` by `content/`, trim leading `/` and 
+     search in $BASE_DIR + $path, $BASE_DIR + static + $path and $BASE_DIR + content + $path
+  3. `get_file_hash` now returns base64 encoded hash by default
+  4. all functions working on files can now only load files in the Zola directory
+  5. `resize_image` return value has changed
+  6. `page.assets` now start with a `/` to match `section.assets` and other paths
+
+### Other
+
+- Internal links are now resolved in the `markdown` filter in the templates (#1296 #1316)
+- Add a `required` argument to `load_data` so it can be allowed to fail
+- `get_file_hash` now supports returning the base64 encoded hash
+- The `markdown` filter not renders shortcodes
+- Image processing now supports WebP
+- Fix `zola serve` failing for some static files
+- Fix `zola serve` not picking up directory renaming
+- Add `path` to the taxonomy terms to be on par with pages and sections
+- Add the `base16-aterlierdune-light` syntax highlight theme
+- Improve link checking: less concurrency and try to not overload the servers
+- Allow using POST for `load_data`, along with a body to POST and allow it to fail
+- Add Zig and Protobuf syntax highlighting
+- Footnotes links are now stripped from summaries - they were not linking to anything.
+- `get_url` and `get_taxonomy_url` are now marked as safe, no need to call `| safe` on their output
+- Add `allow_missing` optional argument to `get_image_metadata` to not error if the file is not found
+- Add `permalink` to `Taxonomy` in templates
+- Syntax highlighting improvements, see documentation for details on each
+  1. Add CSS class based syntax highlighting
+  2. Allow hiding specific lines
+  3. Allow showing line numbers
     </releaseNotes>
     
   </metadata>
