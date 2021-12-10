@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>zola</id>
-    <version>0.15.0</version>
+    <version>0.15.1</version>
     <title>zola</title>
     <authors>Vincent Prouillet, zola contributors</authors>
 
@@ -49,7 +49,12 @@ If you want a feature added or modified, please open an issue to discuss it befo
     </description>
 
     <owners>gsomix</owners>
-    <releaseNotes>## 0.15.0 (2021-12-05)
+    <releaseNotes>## 0.15.1 (2021-12-08)
+
+- Fix markdown shortcodes not being rendered correctly
+- Fix config data not getting to the templates
+
+## 0.15.0 (2021-12-05)
 
 - Fix config file watching
 - Support custom syntax highlighting themes
