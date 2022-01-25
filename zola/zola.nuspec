@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>zola</id>
-    <version>0.15.1</version>
+    <version>0.15.3</version>
     <title>zola</title>
     <authors>Vincent Prouillet, zola contributors</authors>
 
@@ -49,7 +49,20 @@ If you want a feature added or modified, please open an issue to discuss it befo
     </description>
 
     <owners>gsomix</owners>
-    <releaseNotes>## 0.15.1 (2021-12-08)
+    <releaseNotes>## 0.15.3 (2022-01-23)
+
+- Fix shortcodes not being rendered in code blocks
+- Fix colocated assets with no extensions being ignored
+- Add `headers` parameters to `load_data`
+- Fix themes `robots.txt` not being rendered
+- Check for local internal anchors in HTML content of markdown files
+- Fix issues loading custom syntaxes if highlight_theme = css
+
+## 0.15.2 (2021-12-10)
+
+- Fix HTML shortcodes
+
+## 0.15.1 (2021-12-08)
 
 - Fix markdown shortcodes not being rendered correctly
 - Fix config data not getting to the templates
