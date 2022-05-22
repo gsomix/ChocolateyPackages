@@ -13,9 +13,9 @@ $packageArgs = @{
   silentArgs    = "/qn /norestart"
   validExitCodes= @(0, 3010, 1641)
   softwareName  = 'RenderDoc'
-  checksum      = 'b2168b7bcb0354332d639f63700afeb13c4ae269b806a81952c8886dd950ad02'
+  checksum      = '86471448f16834c8333d7b5d16f03e17988a80a460675f345d2f8d17a7caa9c9'
   checksumType  = 'sha256'
-  checksum64    = 'ad10d5e7fdbcc18a36f67c74c0aab8d8e39a5a463c13b3e2eecd0fa3473bba4c'
+  checksum64    = 'be01d27889d66476af3b6b66bf85f42c3ed1205afb4d55956af4afeddadf98dd'
   checksumType64= 'sha256'
 }
 
