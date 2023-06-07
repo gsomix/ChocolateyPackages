@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>zola</id>
-    <version>0.16.1</version>
+    <version>0.17.2</version>
     <title>zola</title>
     <authors>Vincent Prouillet, zola contributors</authors>
 
@@ -49,44 +49,56 @@ If you want a feature added or modified, please open an issue to discuss it befo
     </description>
 
     <owners>gsomix</owners>
-    <releaseNotes>## 0.16.1 (2022-08-14)
+    <releaseNotes>## 0.17.2 (2023-03-19)
 
-- Fix many Windows bugs
-- Fix overriding built-in shortcodes
-- Support .yml files with `load_data`
+- Fix one more invalid error with colocated directories
+- Revert "Recognize links starting with `www` as external for the link checker" as they won't be external links in practice
+- Use page.summary for atom.xml if available
+- Fix cachebusting not working with binary files
+- Fix warning message for multilingual sites
 
-## 0.16.0 (2022-07-16)
+## 0.17.1 (2023-02-24)
+
+- Fix bugs with colocated directories in the root `content` directory
+- Fix `zola serve` not  respecting `preserve_dotfiles_in_output`
+- Add `generate_feed` field to the `section` object in templates
+
+## 0.17.0 (2023-02-16)
 
 ### Breaking
-
-- Switch to pulldown-cmark anchor system rather than ours, some (very niche) edge cases are not supported anymore, you can
-also specify classes on headers now
-- Now outputs empty taxonomies instead of ignoring them
-- Unify all pages sorting variable names in templates to `lower`/`higher` in order to make it easy to re-use templates and it
-was becoming hard to come up with names to be honest
+- `get_file_hash` is removed, use `get_hash` instead. Arguments do not change
+- Replace libsass by a Rust implementation: [grass](https://github.com/connorskees/grass). See https://sass-lang.com/documentation/breaking-changes
+for breaking changes with libsass: look for "beginning in Dart Sass"
+- Merge settings for the default language set in the root of `config.toml` and in the `[languages.{default_lang}]` section. 
+This will error if the same keys are defined multiple times
+- Code blocks content are no longer included in the search index
+- Remove built-ins shortcodes
+- Having a file called `index.md` in a folder with a `_index.md` is now an error
+- Ignore temp files from vim/emacs/macos/etc as well as files without extensions when getting colocated assets
+- Now integrates the file stem of the original file into the processed images filename: {stem}.{hash}.{extension}
 
 ### Other
-- Fix markup for fenced code with linenos
-- Make `ignored_content` work with nested paths and directories
-- `zola serve/build` can now run from anywhere in a zola directory
-- Add XML support to `load_data`
-- Add YAML support to `load_data`
-- `skip_prefixes` is now checked before parsing external link URLs
-- Add `render` attribute to taxonomies configuration in `config.toml`, for when you don't want to render
-any pages related to that taxonomy
-- Serialize `transparent` field from front-matter of sections
-- Use Zola Tera instance for markdown filter: this means you have access to the same Tera functions as in shortcodes
-- Ignore sections with `render=false` when looking for path collisions
-- Add support for backlinks
-- Add a warning mode for internal/external link checking in case you don't want zola to stop the build on invalid links
-- Always follow symlinks when loading the site/assets
-- Add `rel="alternate"` to Atom post links
-- Fix taxonomy `current_path`
-- Fix feed location for taxonomies not in the default language
-- Add `title_bytes` sorting method
-- Add `insert_anchor = "heading"`, which allows users to use the entire heading as a link
-- Apply orientation transformation based on EXIF data
-- Fix generated homepages not having their `translations` filled properly
+
+- Add `get_taxonomy_term` function
+- Add `slugify.paths_keep_dates` option
+- Add command to generate shell completions
+- Fix link generation to co-located assets other than images
+- Add `get_hash` Tera function
+- Minify CSS and JS embedded in HTML
+- Fix slow image processing
+- Fix `current_url` in taxonomy term
+- Add new flag `zola serve --no_port_append` to give the ability to remove port from base url
+- `config.markdown` is now available in templates
+- Add `preserve_dotfiles_in_output` option in the config
+- Add Elasticlunr JSON output for the search index
+- Add sorting by slug for pages
+- Enable locale date formatting for the Tera `date` filter
+- Cachebust fingerprint is now only 20 chars long
+- Add `text` alias for plain text highlighting (before, only `txt` was used)
+- Adds a new field to `page`: `colocated_path` that points to the folder of the current file being rendered if it's a colocated folder. None otherwise.
+- Add `author` as a first-class property to the config and `authors` to pages
+- Allows using external URL for `redirect_to`
+- Recognize links starting with `www` as external for the link checker
     </releaseNotes>
     
   </metadata>
